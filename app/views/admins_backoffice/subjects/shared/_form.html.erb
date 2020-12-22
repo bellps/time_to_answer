@@ -1,0 +1,24 @@
+<h1><%= title %></h1>
+<hr>
+<%= form_for [:admins_backoffice, @subject] do |f| %>
+    <% if @subject.errors.any?%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <% @subject.errors.full_messages.each do |erro|%>
+                <li><%= erro %></li>
+            <% end %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control", placeholder: t('placeholder.subject') %>
+    </div>
+    
+    <%= link_to :back, class: "btn btn-info mr-1" do%>
+        <i class="fas fa-arrow-left"></i> <%= t('messages.back')%>
+    <%end%>
+    <%= f.submit nil, class: "btn btn-primary"%>
+<% end %>

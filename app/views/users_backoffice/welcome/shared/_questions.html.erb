@@ -1,0 +1,21 @@
+<% answered_questions.each do |a| %>
+    <div class="card <%= a[:correct] ? 'bg-success' : 'bg-danger' %> text-white shadow" id="<%= a[:question].id %>">
+        <div class="card-header">
+            <span class="badge badge-secondary">
+                <%= link_to a[:question].subject.description, site_search_subject_path(a[:question].subject_id, a[:question].subject.description), style: "color: white" %>
+            </span> 
+            <strong><%= a[:question].description %></strong>
+        </div>
+        <div class="card-body">
+            <% a[:question].answers.each do |answer|%>
+                <div class="radio">
+                    <label>
+                        <%= "✓" if answer.correct %>
+                        <%= answer.description %>
+                    </label>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<br>
+<% end %>

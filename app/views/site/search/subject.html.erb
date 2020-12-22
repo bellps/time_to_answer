@@ -1,0 +1,4 @@
+<header class="jumbotron mt-4">
+    <h3><%= @questions.count %> questões sobre "<%= params[:subject] %>"</h3>
+</header>
+<%= render partial: "site/shared/questions", locals: {questions: @questions}%>

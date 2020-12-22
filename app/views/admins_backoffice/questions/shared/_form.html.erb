@@ -1,0 +1,40 @@
+<h1><%= title %></h1>
+<hr>
+<%= form_for [:admins_backoffice, @question] do |f| %>
+    <% if @question.errors.any?%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <% @question.errors.full_messages.each do |erro|%>
+                <li><%= erro %></li>
+            <% end %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", placeholder: t('placeholder.question') %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :subject %>
+        <%= f.collection_select(:subject_id, @all_subjects, :id, :description, {}, {:class=>"form-control" }) %>
+    </div>
+
+    <h3 class="mt-4"><%= @question.answers.model_name.human(count: 2) %></h3>
+    <hr>
+    <div id='answers'>
+        <div class="radio">
+            <%= f.fields_for :answers do |answer| %>
+                <%= render partial: "answer_fields", locals: { f: answer } %>
+            <% end %>
+        </div>
+        <%= link_to_add_association "#{t('messages.add_answer')}", f, :answers, class: "btn btn-success mb-5" %>
+    </div>
+
+    <%= link_to :back, class: "btn btn-info mr-1" do%>
+        <i class="fas fa-arrow-left"></i> <%= t('messages.back')%>
+    <%end%>
+    <%= f.submit nil, class: "btn btn-primary"%>
+<% end %>

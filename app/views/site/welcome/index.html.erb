@@ -1,0 +1,10 @@
+<header class="jumbotron mt-4">
+    <% if user_signed_in? %>
+        <h1>Bem vindo(a), <%= current_user.first_name ? current_user.first_name : current_user.email %></h1>
+    <% else %>
+        <h1>Entre ou cadastre-se</h1>
+    <% end %>
+    <p>Veja aqui as últimas perguntas cadastradas no site.</p>
+</header>
+
+<%= render partial: "site/shared/questions", locals: {questions: @questions}%>

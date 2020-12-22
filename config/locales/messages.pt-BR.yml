@@ -1,0 +1,12 @@
+'pt-BR':
+  messages:
+    list: Lista de %{model}
+    confirm: Tem certeza disso?
+    new: Novo(a) %{model}
+    edit: Editar %{model}
+    back: Voltar
+    created: "%{model} criado(a) com sucesso."
+    deleted: "%{model} deletado(a) com sucesso."
+    edited: "%{model} editado(a) com sucesso."
+    add_answer: Adicionar resposta
+    remove_answer: Remover

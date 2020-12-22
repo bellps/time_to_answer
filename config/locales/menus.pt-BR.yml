@@ -1,0 +1,10 @@
+'pt-BR':
+  menus:
+    log_out: Sair
+    admin:
+      dashboard: Dashboard
+      admins: Administradores
+      subjects: Assuntos
+      questions: Perguntas
+      options: Opções
+      BA: Backoffice Administrativo

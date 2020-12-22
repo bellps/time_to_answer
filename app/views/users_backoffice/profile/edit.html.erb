@@ -1,0 +1,59 @@
+<h3>Editar cadastro</h3>
+<hr>
+<%= form_for @user, url: users_backoffice_profile_path do |f| %>
+    <% if @user.errors.any?%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <% @user.errors.full_messages.each do |erro|%>
+                <li><%= erro %></li>
+            <% end %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% end %>
+    <div class="form-row">
+        <div class="form-group col">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: "form-control", placeholder: "Fulano" %>
+        </div>
+        <div class="form-group col">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: "form-control", placeholder: "da Silva" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "user@user.com" %>
+    </div>
+
+    <%= f.fields_for :user_profile do |profile| %>
+        <div class="form-group">
+            <%= profile.label :address %>
+            <%= profile.text_field :address, class: "form-control", placeholder: "Rua tal" %>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <%= profile.label :birthdate %>
+                <%= profile.text_field :birthdate, 
+                    value: (l(@user.user_profile.birthdate) unless @user.user_profile.birthdate.blank?),
+                    class: "form-control datepicker", placeholder: "12/12/2020" %>
+            </div>
+            <div class="form-group col">
+                <%= profile.label :gender %>
+                <%= profile.collection_select(:gender_id, @genders, :id, :description, {:prompt => "Selecione"}, {:class=>"form-control" }) %>
+            </div>
+        </div>
+    <%end %>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control", placeholder: "******" %>
+        </div>
+        <div class="form-group col">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "******" %>
+        </div>
+    </div>
+    <%= f.submit nil, class: "btn btn-primary"%>
+<% end %>

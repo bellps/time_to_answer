@@ -1,0 +1,18 @@
+var question = document.getElementById(<%= @answer.question_id %>);
+var button = document.getElementById('btn_<%= @answer.question_id %>');
+var radios = question.querySelectorAll('input');
+
+<% if @answer.correct %>
+    question.className = 'card bg-success text-white';
+
+    radios.forEach(function(radio){
+        radio.disabled = true;
+    });
+
+    button.style.display = "none";
+<% else %>
+    question.className = 'card bg-danger text-white';
+    button.className = "btn btn-outline-light";
+<% end %>
+
+

@@ -1,0 +1,35 @@
+<% questions.each do |question|%>
+    <%= form_for :answer, url: site_answer_path, remote: true do |f| %>
+        <div class="card shadow" id="<%= question.id %>">
+            <div class="card-header">
+                <span class="badge badge-secondary">
+                    <%= link_to question.subject.description, site_search_subject_path(question.subject_id, question.subject.description), style: "color: white" %>
+                </span> 
+                <strong><%= question.description %></strong> <em><%= question_answered?(question) %></em> 
+            </div>
+            <div class="card-body">
+                <% question.answers.each do |answer|%>
+                    <div class="radio">
+                        <label>
+                            <%= radio_button_tag 'answer_id', answer.id, checked = false, :class => 'mr-2' %>
+                            <%= answer.description %>
+                        </label>
+                    </div>
+                <% end %>
+                <div class="text-right">
+                    <%= f.submit "Responder", class: "btn btn-outline-success", id: "btn_#{question.id}" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<br>
+<% end %>
+<% if user_signed_in? %>
+    <%= paginate questions %>
+<% else %>
+    <div class="alert alert-warning text-center" role="alert">
+        Quer ter acesso a mais perguntas? Faça 
+         <%= link_to "Login", new_user_session_path, class:"alert-link" %> ou
+        <%= link_to "Cadastre-se", new_user_registration_path, class:"alert-link" %> :)
+    </div>
+<% end %>

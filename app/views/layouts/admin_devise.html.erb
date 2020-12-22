@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= stylesheet_link_tag    'admin_devise', media: 'all'%>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+        <%= yield %>
+         <% flash.each do |key, value| %>
+            <%= render partial: "layouts/flash", locals: { msg: value } %>
+        <% end %>
+    </div>
+
+    <%= javascript_include_tag 'application'%>
+    <%= javascript_include_tag 'admin_devise'%>
+   
+</body>
+
+</html>

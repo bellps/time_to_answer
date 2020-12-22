@@ -1,0 +1,10 @@
+en:
+  menus:
+    log_out: Log out
+    admin:
+      dashboard: Dashboard
+      admins: Administrators
+      subjects: Subjects
+      questions: Questions
+      options: Options
+      BA: Administrators Backoffice

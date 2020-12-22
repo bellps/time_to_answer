@@ -1,0 +1,4 @@
+<header class="jumbotron mt-4">
+    <h3>Resultados para "<%= params[:search][:search]%>" </h3>
+</header>
+<%= render partial: "site/shared/questions", locals: {questions: @questions}%>

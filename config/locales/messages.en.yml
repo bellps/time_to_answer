@@ -1,0 +1,12 @@
+en:
+  messages:
+    list: List of %{model}
+    confirm: Are you sure?
+    new: New %{model}
+    edit: Edit %{model}
+    back: Back
+    created: "%{model} created with success."
+    deleted: "%{model} deleted with success."
+    edited: "%{model} edited with success."
+    add_answer: Add Answer
+    remove_answer: Remove

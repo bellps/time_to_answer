@@ -1,0 +1,13 @@
+<div class="nested-fields">
+    <div class="form-row align-items-center">
+        <div class="form-group col-md-7 mr-5">
+            <%= f.label :description %>
+            <%= f.text_field :description, class: "form-control"%>
+        </div>
+        <div class="form-group col-md-3 mt-4">
+            <%= f.check_box :correct, class: "form-check-input position-static"%> <%= f.label :correct %>?
+            <%= link_to_remove_association("#{t('messages.remove_answer')}", f)%>
+        </div>
+
+    </div>
+</div>
