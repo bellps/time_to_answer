@@ -24,7 +24,7 @@
             <div class="sidebar-heading">Time to Answer </div>
             <div class="list-group list-group-flush">
                 <div class="list-group-item bg-dark text-white text-center">
-                    <%= link_to image_tag(current_user.user_profile.avatar, class: "rounded-circle mb-2", width: "40px"), '#', "data-toggle":"modal", "data-target":"#avatarModal", id: "img_sidebar" %>
+                    <%= link_to image_tag(current_user.user_profile.avatar.url, class: "rounded-circle mb-2", width: "40px"), '#', "data-toggle":"modal", "data-target":"#avatarModal", id: "img_sidebar" %>
                     <br>
                     <span class="mb-5">Bom dia, <%= current_user.full_name.blank? ? 'Usuário' : current_user.full_name %></span> <br>
                 </div>
@@ -97,7 +97,7 @@
                     <%= form.fields_for :user_profile do |profile| %>
                         <div class="modal-body">
                             <div class="text-center mb-3">
-                                    <%= image_tag current_user.user_profile.avatar, width: "100px" %>
+                                    <%= image_tag current_user.user_profile.avatar.url, width: "100px" %>
                                 <br>
                                 <span><em>(Avatar atual)</em></span>
                             </div>

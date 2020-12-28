@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'bootsnap', '~> 1.1', '>= 1.1.7'
+gem 'activesupport', '~> 5.2'
 gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
 gem 'faker', '~> 2.15', '>= 2.15.1'
