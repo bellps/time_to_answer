@@ -8,15 +8,13 @@ namespace :dev do
             show_spinner("Apagando BD...") { %x(rails db:drop) } # %x() executa um comando de terminar
             show_spinner("Criando BD...") { %x(rails db:create) }
             show_spinner("Migrando BD...") { %x(rails db:migrate) }
-            show_spinner("Cadastrando admin") { %x(rails dev:add_default_admin) }
-            show_spinner("Cadastrando admins extras") { %x(rails dev:add_extras_admins) }
-            show_spinner("Cadastrando usuário...") { %x(rails dev:add_default_user) }
-            show_spinner("Cadastrando assuntos...") { %x(rails dev:add_subjects) }
-            show_spinner("Cadastrando perguntas e respostas...") { %x(rails dev:add_answers_and_questions) }
-            show_spinner("Cadastrando gêneros...") { %x(rails db:seed) }
-        else
-            puts "Você não está em ambiente de desenvolvimento!"
         end
+        show_spinner("Cadastrando admin") { %x(rails dev:add_default_admin) }
+        show_spinner("Cadastrando admins extras") { %x(rails dev:add_extras_admins) }
+        show_spinner("Cadastrando usuário...") { %x(rails dev:add_default_user) }
+        show_spinner("Cadastrando assuntos...") { %x(rails dev:add_subjects) }
+        show_spinner("Cadastrando perguntas e respostas...") { %x(rails dev:add_answers_and_questions) }
+        show_spinner("Cadastrando gêneros...") { %x(rails db:seed) }
     end
 
     desc "Adiciona o administrador padrão"
