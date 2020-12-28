@@ -12,4 +12,5 @@
 //
 //= require jquery/dist/jquery
 //= require jquery_ujs
+//= require popper.js/dist/popper.js
 
