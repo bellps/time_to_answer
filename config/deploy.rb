@@ -1,5 +1,5 @@
 before "deploy:assets:precompile", "deploy:yarn_install"
-after "deploy:finished", "deploy:restart"
+after "deploy:publishing", "deploy:restart"
 
 namespace :deploy do
     desc 'Run rake yarn:install'
@@ -13,8 +13,7 @@ namespace :deploy do
 
     desc 'Invoca o unicorn'
     task :restart do
-        invoke 'unicorn:stop'
-        invoke 'unicorn:start'
+        invoke 'unicorn:restart'
     end
 end
 
