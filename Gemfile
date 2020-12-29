@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# tava tendo problemas com essa gem e assim foi!
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: '8daa87a0389d380f7c9fd7ea9cb5bda634d5dc7d'
+
 gem 'devise'
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
 gem 'activesupport', '~> 5.2'

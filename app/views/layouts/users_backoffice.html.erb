@@ -93,7 +93,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <%= form_for current_user, url: users_backoffice_profile_path do |form| %>
+                <%= form_for current_user, url: users_backoffice_profile_path, authenticity_token: true do |form| %>
                     <%= form.fields_for :user_profile do |profile| %>
                         <div class="modal-body">
                             <div class="text-center mb-3">

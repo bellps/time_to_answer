@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 8daa87a0389d380f7c9fd7ea9cb5bda634d5dc7d
+  branch: 8daa87a0389d380f7c9fd7ea9cb5bda634d5dc7d
+  specs:
+    ransack (2.1.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -190,10 +201,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (13.0.3)
-    ransack (2.4.1)
-      activerecord (>= 5.2.4)
-      activesupport (>= 5.2.4)
-      i18n
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -285,6 +292,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rails-i18n (~> 5.1)
   rails_db (= 2.2.1)
+  ransack!
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
