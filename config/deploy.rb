@@ -1,4 +1,5 @@
 before "deploy:assets:precompile", "deploy:yarn_install"
+after "deploy:finished", "deploy:restart"
 
 namespace :deploy do
     desc 'Run rake yarn:install'
@@ -8,6 +9,12 @@ namespace :deploy do
           execute("cd #{release_path} && yarn install")
         end
       end
+    end
+
+    desc 'Invoca o unicorn'
+    task :restart do
+        invoke 'unicorn:stop'
+        invoke 'unicorn:start'
     end
 end
 
