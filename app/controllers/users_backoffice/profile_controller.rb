@@ -23,7 +23,8 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
                                      :password_confirmation, user_profile_attributes: [
                                                                 :id,
                                                                 :avatar,
-                                                                :address, 
+                                                                :address,
+                                                                :zip_code,
                                                                 :birthdate, 
                                                                 :gender_id
                                     ])

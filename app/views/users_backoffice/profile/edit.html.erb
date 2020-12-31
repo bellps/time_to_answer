@@ -27,9 +27,21 @@
     </div>
 
     <%= f.fields_for :user_profile do |profile| %>
-        <div class="form-group">
-            <%= profile.label :address %>
-            <%= profile.text_field :address, class: "form-control", placeholder: "Rua tal" %>
+        <div class="form-row">
+            <div class="col-md-3">
+                <%= profile.label :zip_code %>
+                <div class="input-group">
+                    <%= profile.text_field :zip_code, class: "form-control", placeholder: "01000-000" %>
+                    <div class="input-group-append">
+                        <%= link_to "Buscar", users_backoffice_zip_code_path, remote: true, class: "btn btn-outline-secondary", type: "button", id: "zip_code_link"%>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group col-md-9">
+                <%= profile.label :address %>
+                <%= profile.text_field :address, class: "form-control", placeholder: "Rua tal" %>
+            </div>
         </div>
         <div class="form-row">
             <div class="form-group col">
@@ -57,3 +69,12 @@
     </div>
     <%= f.submit nil, class: "btn btn-primary"%>
 <% end %>
+
+<script>
+    let zip_code_input = document.getElementById("user_user_profile_attributes_zip_code");
+    var zip_code_link = document.getElementById("zip_code_link");
+
+    zip_code_input.addEventListener("change", function(){
+        zip_code_link.href = '<%= users_backoffice_zip_code_path %>/?zip_code=' + zip_code_input.value;
+    });
+</script>

@@ -1,4 +1,5 @@
 class Subject < ApplicationRecord
+    searchkick
     has_many :questions
     paginates_per 20
 

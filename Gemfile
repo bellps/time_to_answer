@@ -50,6 +50,11 @@ gem 'kaminari-i18n'
 gem 'cocoon', '~> 1.2', '>= 1.2.15'
 gem "paperclip", "~> 6.0.0"
 gem 'imagemagick-identify', '~> 0.0.1'
+gem 'prawn-rails'
+gem 'redis'
+gem 'hiredis'
+gem 'trix'
+gem 'searchkick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

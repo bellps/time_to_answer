@@ -71,6 +71,13 @@ namespace :dev do
         end
     end
 
+    desc "Adiciona respostas ao Redis"
+    task add_answers_to_redis: :environment do
+        Answer.find_each do |answer|
+            Rails.cache.write(answer.id, "#{answer.question_id}@@#{answer.correct}")
+        end
+    end
+
     private
     def show_spinner(msg_start, msg_end = '(Prontinho!)')
         spinner = TTY::Spinner.new("[:spinner] #{msg_start}", format: :arc)

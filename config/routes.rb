@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '', to: 'welcome#index'
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
+    get 'zip-code', to: 'zip_code#show'
   end
 
   namespace :admins_backoffice do

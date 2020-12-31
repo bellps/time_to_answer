@@ -2,7 +2,7 @@ class Site::SearchController < SiteController
     before_action :get_answered_questions
 
     def questions
-        @questions = Question.search_questions(params[:search][:search], params[:page])
+        @questions = Question.search(params[:search][:search], page: params[:page], per_page: 5, includes: [:answers, :subject])
     end
 
     def subject
